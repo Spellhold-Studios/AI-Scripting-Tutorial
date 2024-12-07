@@ -1,0 +1,4279 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns:st1="urn:schemas-microsoft-com:office:smarttags"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=utf-8">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 10">
+<meta name=Originator content="Microsoft Word 10">
+<link rel=File-List href="gr_scripting_files/filelist.xml">
+<title>Beginner’s Guide to BG2 Scripting</title>
+<o:SmartTagType namespaceuri="urn:schemas-microsoft-com:office:smarttags"
+ name="PlaceType"/>
+<o:SmartTagType namespaceuri="urn:schemas-microsoft-com:office:smarttags"
+ name="PlaceName"/>
+<o:SmartTagType namespaceuri="urn:schemas-microsoft-com:office:smarttags"
+ name="State"/>
+<o:SmartTagType namespaceuri="urn:schemas-microsoft-com:office:smarttags"
+ name="place"/>
+<!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:View>Print</w:View>
+  <w:Zoom>BestFit</w:Zoom>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+ </w:WordDocument>
+</xml><![endif]--><!--[if !mso]><object
+ classid="clsid:38481807-CA0E-42D2-BF39-B33AF135CC4D" id=ieooui></object>
+<style>
+st1\:*{behavior:url(#ieooui) }
+</style>
+<![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;
+	mso-font-charset:2;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:0 268435456 0 0 -2147483648 0;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:purple;
+	text-decoration:underline;
+	text-underline:single;}
+@page Section1
+	{size:612.0pt 792.0pt;
+	margin:72.0pt 72.0pt 72.0pt 72.0pt;
+	mso-header-margin:35.4pt;
+	mso-footer-margin:35.4pt;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Table Normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-parent:"";
+	mso-padding-alt:0cm 5.4pt 0cm 5.4pt;
+	mso-para-margin:0cm;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman";}
+</style>
+<![endif]--><!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="3074"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body lang=EN-US link=blue vlink=purple style='tab-interval:36.0pt'>
+
+<div class=Section1>
+
+<p class=MsoNormal align=center style='text-align:center'><b><span
+style='font-size:16.0pt'>Beginner’s Guide to BG2 Scripting.</span></b></p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b><span style='font-size:14.0pt'>Version
+History</span></b></p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'>Original
+Release:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Goran
+Rimén
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+V1.1 Nov 2001</p>
+
+<p class=MsoNormal style='text-align:justify'>Additional
+Notes:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Yovaneth
+Scet&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+V1.2 Dec 2004</p>
+
+<p class=MsoNormal style='text-align:justify'><i>&nbsp;</i></p>
+
+<p class=MsoNormal style='text-align:justify'><b><span style='font-size:14.0pt'>Introduction</span></b></p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'>This document is based on
+Bioware’s Quick Reference Guide and has been reworked by Goran Rimén. Any
+information contained herein, are provided in an “as is” state.</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'>The aim is that this guide should
+only contain information relevant to creating a player script. I have deleted
+everything that I feel is only useful for Bioware when creating a game. Maybe I
+have deleted a line too much if that line is of importance you can mail me at
+goran.rimen@swipnet.se. </p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><i>All Yovaneth’s Additional
+Notes are in italic. If it’s italic, it’s&nbsp; Yovaneth’s. If it’s not italic,
+it’s Goran’s <b>unless specifically stated.</b> I have also changed the code
+samples to navy so that they display more easily.</i></p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b><i><span style='font-size:
+14.0pt'>Additional Notes on ids files</span></i></b></p>
+
+<p class=MsoNormal style='text-align:justify'><i>All Infinity Engine games are
+not created equal. This guide refers to BG2:SoA and in many places refers you
+to the ids files as supplied with the original Bioware script compiler. Over
+the years these ids files have been modified, upgraded, lost and resurrected by
+the many game scripters that have worked on the Infinity Engine. In general anything
+written here can be applied to the other games, but note the phrase “in
+general”. BG1 is missing many of the BG2&nbsp; identifiers (ids) and IWD1/II
+has a whole load of different ones. Planescape:Torment is in a whole new park
+by itself.&nbsp; Additionally, some game compilers did not include a full
+listing of the working ids files for that game. Worse still, many ids that are
+included are either broken or simply did not work when the games were released.
+I am reasonably certain that the downloadable ids file packages available on
+this site are as good as can currently be had; with Kensai Ryu’s help and
+encouragement I spent a lot of time cross-checking ids against BG1, BG2 and
+IWD1. I don’t, however, claim that they are complete.</i></p>
+
+<p class=MsoNormal style='text-align:justify'><i>&nbsp;</i></p>
+
+<p class=MsoNormal style='text-align:justify'><i>There was a useful page on the
+PlagueZone forums where Horred had spent a great deal of time checking triggers
+and actions. PlagueZone is no longer with us (although Horred still is!) and so
+I have taken the liberty of appending Horred’s work to the end of this file. I
+have also added links to other scripting guides: no one guide has all the
+information but used together, they do cover almost all of what is possible.</i></p>
+
+<p class=MsoNormal style='text-align:justify'><i>&nbsp;</i></p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b><span style='font-size:14.0pt'>Creating
+Scripts</span></b></p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b>Initial Planning: </b></p>
+
+<p class=MsoNormal style='text-align:justify'>Decide what you want the script
+to do before actually starting one. Well I suppose that is the reason why you
+are reading this.&nbsp; This scripting language has its limits and there are
+just a few things you can do expect attacking and killing an enemy, which is
+very useful indeed. You can use items such as potions, wands etc. You can cast
+a spell for killing an enemy or healing yourself. A problem with large parties
+is to keep them together when moving for one area to another. The process is
+somewhat easier if you use a hotkey. When I press key S, I want all my party
+members to move to the calling Player x on the double. I also want to hear the
+caller say something so I know that the first module of the script works. </p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b>Preparation: </b></p>
+
+<p class=MsoNormal style='text-align:justify'>After you have decided what you
+want the script to do open notepad or whatever else you would like to use to
+create plain text file and begin entering in the commands you will need.&nbsp; </p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b>Coding:&nbsp; </b></p>
+
+<p class=MsoNormal style='text-align:justify'>This is how my script would look:</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>//Module#1</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>IF</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ActionListEmpty()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // If true, I have no
+actions on my queue</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+HotKey(S)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // if true, key S is pressed</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>THEN</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RESPONSE
+#100</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+VerbalConstant(Myself(),LEADER)&nbsp;&nbsp;&nbsp;&nbsp; // the selected player
+will say something</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+GlobalShout(1001)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// Send all in the area Heard trigger #1001</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Wait(6)//
+seconds</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>END</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>//</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>// Module#2, Respond to GlobalShout or
+Shout</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>// heard 1001 = COME_TO_ME</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>IF</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ActionListEmpty()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+//true if I have no actions on my queue</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Heard([PC],1001)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+//true if someone has send Heard trigger #1001</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+!Range(LastHeardBy(),12)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //True if the range to
+the caller is &gt; 12 search</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //squares from Myself</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>THEN</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RESPONSE
+#100</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+SetInterrupt(FALSE)</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+MoveToObjectFollow(LastHeardBy()) &nbsp; // Myself will walk to the caller without
+any delay</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+SetInterrupt(TRUE)</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>END</span></p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'>In the first module of the
+script, I have two triggers&nbsp; ‘ActionListEmpty()’ and ‘HotKey(S)’ in the
+condition part of the module. Both triggers must be true in order to have the
+response part of the module being carried out. There are three actions,
+VerbalConstant(Myself(),LEADER), GlobalShout(1) and Wait(6), in the response
+part of module 1. In module #2, I have three triggers in the condition part and
+three actions in the response part. Note the use of !, when checking that the
+range to the caller is not (using the ! to reference not) within 12 ssq. Any
+command with the ! operator should be resolved without it and then the
+resulting TRUE is switched to FALSE and vice versa.</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b>Compiling: </b></p>
+
+<p class=MsoNormal style='text-align:justify'>Once the script is done I save it
+to the Source directory of the script compiler.&nbsp; The filename must be 1 –
+8 characters with the extension .BAF.&nbsp; Eg. Myscript.baf. In the
+“BG2/script compiler” directory you will find Compile.Bat and mybe test.bat</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'>Compile.bat contains following
+line: </p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; AICompile
+FILE source\%1.baf errors\%1.err compiled\%1.bs </span></p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'>Don’t change anything in
+Compile.bat unless you know what you are doing.</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'>If Test.bat is missing you can
+create it with Notepad. Test.bat should contain following line:</p>
+
+<p class=MsoNormal style='text-align:justify'><br>
+<span style='font-size:10.0pt;font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+call Compile Myscript </span></p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'>I then run Test.bat. Of course
+you can rename Test.bat to whatever you like, just remember to type &lt;FILENAME&gt;
+without the extension .Baf. </p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'>The compiler will notify you of
+any errors in the script by placing an error file in the ERRORS directory with
+the script’s filename and extension .ERR.&nbsp; If the file size is 0 then the
+script compiled successfully.&nbsp; And the final script will be placed in the
+COMPILED directory with the filename and extension .BS.&nbsp; </p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'>This will then have to be copied
+into your SCRIPTS directory of BG2.</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'>Note. The error handling is
+rather primitive and I know some errors that will be compiled without warning.</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'>Next step is to attach Myscript
+to two of my BG2 characters. I select my first character and open the Record
+window, press the button Customise to open the Customise Character window,
+press button Script to open the Pick Script window. In the list on the left
+side I will after some scrolling find a line containing Myscript.&nbsp; I
+select that and close the windows by pressing Done, Done. Now it is time to
+test Myscript and start improving the script. I have these two modules in the
+very beginning of all my scripts.</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b><i>Additional Notes on
+Compiling</i></b></p>
+
+<p class=MsoNormal style='text-align:justify'><i>The original AICompile.exe
+from Bioware is lacking in a number of areas; as Goran has said, it will quite
+often compile faulty .baf files without generating warnings. It is not really a
+compiler, but a symbol generator whereby long script actions are reduced to a
+few symbolic letters. To be sure that you do get a script compiled without
+errors, use Near Infinity’s Script Dropzone. Both DLTCEP and WeiDU will also
+compile scripts but I am unsure how much checking they do in the process.</i></p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b><span style='font-size:14.0pt'>Definitions:</span></b></p>
+
+<p class=MsoNormal style='text-align:justify'><b>&nbsp;</b></p>
+
+<p class=MsoNormal style='text-align:justify'><b>Creature: </b></p>
+
+<p class=MsoNormal style='text-align:justify'>Creatures include all objects
+capable of action. This includes player characters.</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b>Trigger:</b></p>
+
+<p class=MsoNormal style='text-align:justify'>A trigger is sent to a creature
+when a certain event occurs.&nbsp; A trigger includes the knowledge of the
+cause of the trigger</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b>Condition:</b></p>
+
+<p class=MsoNormal style='text-align:justify'>Condition is a combination of
+triggers joined with ands.</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b>Action:</b></p>
+
+<p class=MsoNormal style='text-align:justify'>Action is a specified response to
+a condition.&nbsp; An action requires the knowledge of who (or what) to perform
+the action upon. </p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b>Response:</b></p>
+
+<p class=MsoNormal style='text-align:justify'>Response, is a combination of
+actions, which will be performed sequentially.&nbsp; It is possible for a
+response to be interrupted. </p>
+
+<p class=MsoNormal style='text-align:justify'>Note. Eg. spellcasting but this
+may also be a way of telling that the game engine is not that reliable</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b>Response Set:</b></p>
+
+<p class=MsoNormal style='text-align:justify'>Response set is a combination of
+Responses, each with weighting from 1 to 100.&nbsp; This weighting is used to
+randomly determine which response is actually executed.</p>
+
+<p class=MsoNormal style='text-align:justify'>Eg. 1 </p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>IF</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Heard([PC],1001)</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+!Range(LastHeardBy(),8)</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>THEN</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RESPONSE
+#1</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+MoveToObject(LastHeardBy())</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>END</span></p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'>The chance that this action will
+be carried out is 1 of 1 or 100%</p>
+
+<p class=MsoNormal style='text-align:justify'>Eg. 2</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>IF</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; HotKey(S)</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>THEN</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RESPONSE
+#1</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+VerbalConstant(Myself,3)</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Wait(6)</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RESPONSE
+#2</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+VerbalConstant(Myself,4)</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Wait(6)</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RESPONSE
+#3</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+VerbalConstant(Myself,5)</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Wait(6)</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>END</span></p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'>To calculate the chance for a
+certain response to be activated, when you have several to chose of. Do
+following.&nbsp; Sum all the response numbers. In this case 1+2+3 = 6. </p>
+
+<p class=MsoNormal style='text-align:justify'>The chances are, for response #1,
+1 chance of 6, for response #2, 2 chances of 6, and for response #3, 3 chances
+of 6.</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b>Distances</b></p>
+
+<p class=MsoNormal style='text-align:justify'>Distances are measured in search
+squares (ssq.). How long is a ssq? , Well, nobody can give a good answer, and
+it is of no real interest. Here are some useful distances:</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify;text-indent:36.0pt'>Range 0,
+distance to myself</p>
+
+<p class=MsoNormal style='text-align:justify;text-indent:36.0pt'>Range 1, touch
+spells, all one-handed weapons</p>
+
+<p class=MsoNormal style='text-align:justify;text-indent:36.0pt'>Range 2,
+two-handed weapons</p>
+
+<p class=MsoNormal style='margin-left:36.0pt;text-align:justify'>Range 4, lower
+limit for use of ranged weapon. If you are at range 4 or closer you will get an
+attack penalty.&nbsp;&nbsp; </p>
+
+<p class=MsoNormal style='margin-left:36.0pt;text-align:justify'>Range 25, max
+distance your character can see</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b>Time</b></p>
+
+<p class=MsoNormal style='text-align:justify'>The duration of certain spells is
+measured in rounds or turns, and one round is six seconds, and one turn is ten
+rounds.</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'>The casting time of a spell is measured
+1/10 of a round. Eg, Casting time 5 equals 3 seconds</p>
+
+<p class=MsoNormal style='text-align:justify'>In some actions, such as
+RunAwayFrom(ObjectType,Time), time is measured in AI ticks and one tick is 1/15
+of a second. </p>
+
+<p class=MsoNormal style='text-align:justify'>In
+SetGlobalTimer(“Name”,”Area”,Time), time is normal seconds.</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b><i>Additional Notes on Time</i></b></p>
+
+<p class=MsoNormal style='text-align:justify'><i>See also Igi’s tutorial “Time
+Conversion: Game Time </i><i><span style='font-family:Wingdings'>ó</span> Real
+Time”. Link at the end of the document.</i></p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b><span style='font-size:14.0pt'>Creature
+and Object Identification:</span></b></p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'>Creature and Object
+Identification is done through the ObjectType Class.</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b>Object</b></p>
+
+<p class=MsoNormal style='text-align:justify'>The IDS file used is Object.ids,
+which you can find in the ScriptCompiler directory. Open it with notepad and
+you will find all the different objects used by Bioware in the game. However
+many are not implemented and can not be used in a player script. This is true
+for all .ids files.&nbsp;&nbsp;&nbsp; </p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'>Useful objects are:</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>Myself &nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>LeaderOf</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>MostDamagedOf&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>LastAttackerOf</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>LastHelp&nbsp;&nbsp;&nbsp; </span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>NearestEnemyOf</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>LastHeardBy </span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>LastSeenBy</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>Player1&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>Player2</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>Player3&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>Player4</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>Player5&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>Player6</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>Protagonist </span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>SecondNearestEnemyOf</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>ThirdNearestEnemyOf&nbsp;&nbsp;&nbsp;&nbsp;
+</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>FourthNearestEnemyOf</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>FifthNearestEnemyOf&nbsp;&nbsp;&nbsp;&nbsp;
+</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>SixthNearestEnemyOf</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>SeventhNearestEnemyOf&nbsp;&nbsp; </span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>EighthNearestEnemyOf</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>NinthNearestEnemyOf&nbsp;&nbsp;&nbsp;&nbsp;
+</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>TenthNearestEnemyOf</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>NearestEnemyOfType&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>SecondNearestEnemyOfType etc</span></p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'>Note. All of these objects are
+only for use within the party. You can not do things like:</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>See(MostDamagedOf([ENEMY])// this will
+not work because it is not supported.</span></p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b>ObjectType</b></p>
+
+<p class=MsoNormal style='text-align:justify'>ObjectType is arranged as follows</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'>EnemyAlly
+&lt;-General&lt;-Race&lt;-Class&lt;-Specifics&lt;-Instance&lt;-SpecialCase</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'>You can use ObjectType to
+identify special targets </p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b>EnemyAlly</b></p>
+
+<p class=MsoNormal style='text-align:justify'>EnemyAlly is a range between the
+PC and the evil NPC’s . Creatures can fall anywhere along this range. The IDS
+file used is EA.ids, which you can find in the ScriptCompiler directory.</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'>Useful EA objects are:</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>ANYTHING&nbsp;&nbsp;&nbsp; </span>Refers
+to any object.</p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>ENEMY &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Refers
+to anyone evil, generally red circles.</p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>PC&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Refers to any of the possible six party
+members.</p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>GOODCUTOFF&nbsp; </span>Refers to anyone
+good. Party members, allies, summoned monsters,</p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>EVILCUTOFF&nbsp; </span>Refers to anyone
+evil. Creature or summoned</p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt'>Eg.
+</span></p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>Exists([ENEMY])</span><span
+style='font-family:"Courier New";color:navy'>, </span></p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'>will identify any enemy to you
+regardless of generic characteristics, race, class etc&nbsp; </p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b>General</b></p>
+
+<p class=MsoNormal style='text-align:justify'>General specifies the generic
+characteristics of the creature.</p>
+
+<p class=MsoNormal style='text-align:justify'>The IDS file used is General.ids,
+which you can find in the ScriptCompiler directory.</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'>Useful General objects are: </p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>HUMANOID, </span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>UNDEAD, </span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>GIANTHUMANOID, </span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>MONSTER</span></p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'>Eg. </p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>Exists([0. UNDEAD])</span></p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'>will identify any UNDEAD to you
+regardless of EnemyAlly, race, class etc </p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'>Eg. </p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>Exists([ENEMY.UNDEAD])</span></p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'>will identify all UNDEAD that is
+an enemy to you.</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b>Race</b></p>
+
+<p class=MsoNormal style='text-align:justify'>Race is the race of the creature.</p>
+
+<p class=MsoNormal style='text-align:justify'>The IDS file used is Race.ids,
+which you can find in the ScriptCompiler directory.</p>
+
+<p class=MsoNormal style='text-align:justify'>In this file there are several
+useful race objects </p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'>Eg. </p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>Exists([0.0.GOLEM])</span></p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'>will identify any GOLEM
+regardless of EA, General or class&nbsp; </p>
+
+<p class=MsoNormal style='text-align:justify'>Eg.</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>Exists([ENEMY.0.GOLEM])</span></p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'>will identify all GOLEM that are
+an enemy to you </p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b>Class</b></p>
+
+<p class=MsoNormal style='text-align:justify'>Class is the class information
+(Mage, Fighter …) Alternatively it can be used for more detailed information
+(e.g. Drow is more specific then elf). The IDS file used is Class.ids, which
+you can find in the ScriptCompiler directory. In this file there are several
+useful class objects</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'>Eg. </p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>See(NearestEnemyOfType([0.0.0.DRUID_ALL]))</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>See(NearestEnemyOfType([0.0.0.BARD_ALL]))</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>See(NearestEnemyOfType([0.0.0.CLERIC_ALL]))</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>See(NearestEnemyOfType([0.0.0.MAGE_ALL]))</span></p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b>Specifics</b></p>
+
+<p class=MsoNormal style='text-align:justify'>Specifics holds the
+identification for special NPC’s. The IDS file used is Specific.ids, which you
+can find in the ScriptCompiler directory. The only use I found so far is
+following:</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>See(NearestEnemyOfType([0.0.YUANTI.0.NO_MAGIC]))</span></p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'>This will identify a YUANTI mage.</p>
+
+<p class=MsoNormal style='text-align:justify'>Note. I wonder why Bioware used
+NO_MAGIC to identify a mage?</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b>Instance</b></p>
+
+<p class=MsoNormal style='text-align:justify'>Instance holds the gender
+identification for special NPC’s </p>
+
+<p class=MsoNormal style='text-align:justify'>The IDS file used is Gender.ids,
+which you can find in the ScriptCompiler directory.</p>
+
+<p class=MsoNormal style='text-align:justify'>Eg</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>NumCreatureLT([GOODCUTOFF.0.0.0.0.SUMMONED],1)</span></p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'>is true if the total number of
+summoned creatures in my party is less than 1. The maximum number of summoned
+creatures allowed in a party is 5.</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b>Special Object Identification:</b></p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b>NAME</b></p>
+
+<p class=MsoNormal style='text-align:justify'>This is the name used by Bioware
+to identify certain creatures. </p>
+
+<p class=MsoNormal style='text-align:justify'>Note. Only the names of a NPC in
+your party can be used, Nalia, Imoen, Imoen2, Minsc, but the name of the
+character you have created can not be identified this way. </p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>IF</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Name(&quot;Nalia&quot;,Myself)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// true if I am Nalia</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>THEN</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RESPONSE
+#100</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+DisplayStringHead(Myself,9102)//Nalia</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>END</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-align:justify'>This module will display the word
+Nalia above the head of Nalia, if the object “Nalia” exists</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b>LeaderOf()</b></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-family:"Courier New"'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-align:justify'>-Current leader of the Player
+group. </p>
+
+<p class=MsoNormal style='text-align:justify'>-The Character in portrait slot 1</p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>IF</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ActionListEmpty()</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+!Range(LeaderOf(),20)&nbsp;&nbsp; // true if my distance to my leader is more
+than&nbsp; 20 ssq.</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>THEN</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RESPONSE
+#100</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+SetInterrupt(FALSE)</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+MoveToObject(LeaderOf())</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+SetInterrupt(TRUE)</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>END</span></p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'>This module will make me follow
+the current leader of my group</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b>LastAttackerOf(InPartyObject)</b></p>
+
+<p class=MsoNormal style='text-align:justify'>The Creature that last did the
+Object damage. By leaving out the Object within the brackets, the Object
+defaults to Myself.</p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>IF</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Help([PC])&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // true if any PC has send Help trigger</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+!Range(LastHeardBy(),0) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //true if range to caller is &gt; 0</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+!Range(NearestEnemyOf(),4)&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+//true if range to my nearest enemy is &gt;4 </span></p>
+
+<p class=MsoNormal style='text-align:justify;text-indent:36.0pt'><span
+style='font-size:10.0pt;font-family:"Courier New";color:navy'>See(LastAttackerOf(LastHelp()))&nbsp;&nbsp;&nbsp;&nbsp;
+//true if I can see the last attacker of the last </span></p>
+
+<p class=MsoNormal style='margin-left:216.0pt;text-align:justify;text-indent:
+36.0pt'><span style='font-size:10.0pt;font-family:"Courier New";color:navy'>//caller
+for help</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>THEN</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RESPONSE
+#100</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+DisplayString(Myself,49769)&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //will
+print ‘I shall help thee!’ in dialog window.</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+EquipRanged()</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+AttackOneRound(LastSeenBy())&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // I will
+attack the last creature that attacked the </span></p>
+
+<p class=MsoNormal style='margin-left:216.0pt;text-align:justify;text-indent:
+36.0pt'><span style='font-size:10.0pt;font-family:"Courier New";color:navy'>//
+caller of help</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>END</span></p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b>LastHeardBy(InpartyObject)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</b></p>
+
+<p class=MsoNormal style='text-align:justify'>Last heard by the Object. This
+module will make Myself to move to the last player that used SHOUT or
+GLOBALSHOUT</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>IF</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Heard([PC],1)</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+!Range(LastHeardBy(),12)</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>THEN</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RESPONSE
+#100</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+MoveToObject(LastHeardBy())</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>END</span></p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b>LastHelp(InpartyObject)</b></p>
+
+<p class=MsoNormal style='text-align:justify'>Last party member I heard call
+for help</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>IF</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Help([PC])&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //true if any PC has sent a Help trigger</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; See(LastHelp())&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //true if I can see the caller that sent a Help
+trigger </span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+HaveSpell(CLERIC_HEAL)&nbsp; // true if I have the spell CLERIC_HEAL</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>THEN</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RESPONSE
+#100</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+MoveToObject(LastSeenBy ())</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Spell(LastSeenBy(),CLERIC_HEAL)</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>END</span></p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b>LastSeenBy(InpartyObject)</b></p>
+
+<p class=MsoNormal style='text-align:justify'>LastSeenBy() will hold a pointer
+to the object in the last See(AnyObject) statement used. This short script is
+very useful for testing different object. Just change NearestEnemyOf () to
+something else and see where the word ‘Nalia’ appears. </p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'>Note. LastSeenBy() is the
+backbone in my scripts&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>IF</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+See(NearestEnemyOf())</span></p>
+
+<p class=MsoNormal style='text-align:justify;text-indent:36.0pt'><span
+style='font-size:10.0pt;font-family:"Courier New";color:navy'>Range(LastSeenBy(),12)&nbsp;
+//you can try different values to find the max value for Range()&nbsp; </span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>THEN</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RESPONSE
+#100</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+DisplayStringHead(LastSeenBy(),9102)//Nalia</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>END</span></p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b>Myself</b></p>
+
+<p class=MsoNormal style='text-align:justify'>This is the Player that the
+script belongs to.</p>
+
+<p class=MsoNormal style='text-align:justify'>Eg. </p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>UseItem(&quot;POTN17&quot;,Myself)</span></p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b>MostDamagedOf(InpartyObject)</b></p>
+
+<p class=MsoNormal style='text-align:justify'>Group member with the lowest
+percentage of remaining hit points</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>IF</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+!Exists([ENEMY])&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // true if there are
+no enemies around</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+See(MostDamagedOf())&nbsp;&nbsp;&nbsp; // true if I can see the most damaged
+member of my group</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+HaveSpell(CLERIC_CURE_LIGHT_WOUNDS)</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>THEN</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RESPONSE
+#100</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Spell(LastSeenBy(),CLERIC_CURE_LIGHT_WOUNDS)</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>END</span></p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b>NearestEnemyOf(InpartyObject)</b></p>
+
+<p class=MsoNormal style='text-align:justify'>Returns the nearest creature with
+Enemy / Ally flag opposite to the Object.</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>IF</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Exists([ENEMY])&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // true if there are any enemies with visual
+range</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+See(NearestEnemyOf(Myself))&nbsp;&nbsp; //true if I can see the nearest enemy
+of myself &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>THEN</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RESPONSE
+#100</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Continue()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+//with next module </span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>END</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>IF</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Exists([ENEMY])&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+//Exists will not change the pointer stored in LastSeenBy</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Range(LastSeenBy(),4) </span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>THEN</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RESPONSE
+#100</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+EquipMostDamagingMelee()</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+AttackOneRound(LastSeenBy())</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>END</span></p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b>NearestEnemyOfType(ObjectType)</b></p>
+
+<p class=MsoNormal style='text-align:justify'>Nearest enemy of myself that is
+of the Type. This module make LastSeenBy() to point at a Ranger if that
+ObjectType exists</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>IF</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Exists([ENEMY])</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+!Range(NearestEnemyOf(),4)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //enemy too close</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+See(NearestEnemyOfType([0.0.0.RANGER]))&nbsp;&nbsp; // true if my nearest enemy
+is a Ranger</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+!Range(LastSeenBy(),4)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // must be ranged attacker</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>THEN</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RESPONSE
+#100</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+SetGlobal(&quot;GR_IsAttackedByLongBow&quot;,&quot;LOCALS&quot;,1)//Yes</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Continue()</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>END</span></p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b>Player1 or Protagonist</b></p>
+
+<p class=MsoNormal style='text-align:justify'>This is the Main Character or
+Protagonist eg. </p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>See(PLAYER1) or See(Protagonist)</span></p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b>Player2 – Player6</b></p>
+
+<p class=MsoNormal style='text-align:justify'>Character 2, 3, 4, 5 or 6 in the
+order they have joined.</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>IF&nbsp;&nbsp;&nbsp; </span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+HaveSpell(4222)&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // innate spell
+PALADIN_REMOVE_FEAR</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+See(PLAYER2)</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+StateCheck(LastSeenBy(Myself),STATE_PANIC)</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>THEN</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RESPONSE
+#100</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+DisplayString(Myself,12083)//Remove Fear</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Spell(LastSeenBy(Myself),4222) </span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>END</span></p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b>SecondNearestEnemyOf(InpartyObject)</b></p>
+
+<p class=MsoNormal style='text-align:justify'>You can check the first ten
+nearest enemies. This module will select the furthest enemy and attack for one
+round (6 seconds)</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>IF</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; See([ENEMY])</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+!Range(NearestEnemyOf(),4)&nbsp;&nbsp;&nbsp; //true if the distance to my
+nearest enemy is &gt;4 ssq.&nbsp; </span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; OR(9)</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+See(SecondNearestEnemyOf())</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+See(ThirdNearestEnemyOf())</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+See(FourthNearestEnemyOf())</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+See(FifthNearestEnemyOf())</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+See(SixthNearestEnemyOf())</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+See(SeventhNearestEnemyOf())</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+See(EighthNearestEnemyOf())</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+See(NinthNearestEnemyOf())</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+See(TenthNearestEnemyOf())</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>THEN</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RESPONSE
+#100</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+EquipRanged()</span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;text-align:justify;text-indent:
+36.0pt'><span style='font-size:10.0pt;font-family:"Courier New";color:navy'>AttackOneRound(LastSeenBy())&nbsp;
+//I will attack the furthest creature that I see </span></p>
+
+<p class=MsoNormal style='margin-left:216.0pt;text-align:justify;text-indent:
+36.0pt'><span style='font-size:10.0pt;font-family:"Courier New";color:navy'>//using
+a ranged weapon</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>END</span></p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'>Note1. The OR statement is read
+from the first line to the last. If all ten objects exists LastSeenBy will
+point at the TenthNearestEnemyOf(). But, if the listing is reversed and all ten
+objects exists LastSeenBy will point at the SecondNearestEnemyOf().</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'>Note2. This is shorter script to
+target the furthest enemy. </p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>IF</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+See([ENEMY])</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+!Range(NearestEnemyOf(),4)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+//true if the distance to my nearest enemy is &gt;4 ssq.&nbsp; </span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+See(TenthNearestEnemyOf())</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>THEN</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RESPONSE
+#100</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+EquipRanged()</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+AttackOneRound(LastSeenBy())// I will attack the furthest creature that I see
+using</span></p>
+
+<p class=MsoNormal style='margin-left:216.0pt;text-align:justify;text-indent:
+36.0pt'><span style='font-size:10.0pt;font-family:"Courier New";color:navy'>//
+a ranged weapon</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>END</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-align:justify'><b>SecondNearestEnemyOfType(ObjectType)</b></p>
+
+<p class=MsoNormal style='text-align:justify'>You can check the first ten
+nearest.</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>IF</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+See([ENEMY])</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+!Range(NearestEnemyOf(),4)//true if the distance to my nearest enemy is &gt;4
+ssq.&nbsp; </span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; OR(9)</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+See(SecondNearestEnemyOfType([0.0.0.RANGER]))</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+See(ThirdNearestEnemyOfType([0.0.0.RANGER]))</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+See(FourthNearestEnemyOfType([0.0.0.RANGER]))</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+See(FifthNearestEnemyOfType([0.0.0.RANGER]))</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+See(SixthNearestEnemyOfType([0.0.0.RANGER]))</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+See(SeventhNearestEnemyOfType([0.0.0.RANGER]))</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+See(EighthNearestEnemyOfType([0.0.0.RANGER]))</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+See(NinthNearestEnemyOfType([0.0.0.RANGER]))</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+See(TenthNearestEnemyOfType([0.0.0.RANGER]))</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>THEN</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RESPONSE
+#100</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+EquipRanged()</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+AttackOneRound(LastSeenBy())// I will attack the furthest Ranger that I can see
+</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>END</span></p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b>Event Triggers</b></p>
+
+<p class=MsoNormal style='text-align:justify'>Event Triggers only last until
+the next AI cycle.&nbsp; At that point they are examined and processed.&nbsp;
+At the end of the AI cycle all of the triggers are removed from the pending
+list. Triggers return True or False. The IDS file used is Trigger.ids, which
+you can find in the ScriptCompiler directory.</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b>AttackedBy(Object,AttackStyle
+Y)</b></p>
+
+<p class=MsoNormal style='text-align:justify'>Returns: Boolean(True or False)</p>
+
+<p class=MsoNormal style='text-align:justify'>I was just attacked by an Object using
+this AttackStyle. The IDS file used is Astyles.ids, which you can find in the
+ScriptCompiler directory. The only useful style is DEFAULT. Note. I have not
+found that MELEE and RANGED works. I doubt that they are implemented.&nbsp; </p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>IF</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+AttackedBy([ANYTHING],DEFAULT)</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+See(LastAttackerOf())</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+InParty(LastSeenBy())</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>THEN</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RESPONSE
+#100</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+RunAwayFrom(LastSeenBy(),60)</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>END</span></p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'>This module will make me run away
+for 60 ticks if I am attack by a member of my party (Dominated? Dire charmed?)</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b>Heard(Object, Integer: X)</b></p>
+
+<p class=MsoNormal style='text-align:justify'>Returns: Boolean (True or False).
+</p>
+
+<p class=MsoNormal style='text-align:justify'>I heard an Object shout integer
+X. Note. Any integer can be used. Bioware uses integers below 200 in the game. </p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>IF</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Heard([PC],1)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// true if anyone in my party sent Heard trigger #1</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+!Range(LastHeardBy(),12)</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>THEN</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RESPONSE
+#100</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+MoveToObject(LastHeardBy())</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>END</span></p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b>Help(Object)</b></p>
+
+<p class=MsoNormal style='text-align:justify'>Returns: Boolean (True or False).
+</p>
+
+<p class=MsoNormal style='text-align:justify'>Description: a call for help is
+heard from an object</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>IF</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Help([PC])&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// true if someone in my party has sent a Help trigger</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+See(LastHelp())&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// true if I can see the last caller that sent a Help trigger </span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+HaveSpell(CLERIC_CURE_HEAL)</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+HPPercentLT(LastSeenBy(),60)</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>THEN</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RESPONSE
+#100</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Spell(LastSeenBy(),CLERIC_HEAL)</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>END</span></p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b>HitBy(Object, DamageStyle)</b></p>
+
+<p class=MsoNormal style='text-align:justify'>Returns: Boolean (True or False).</p>
+
+<p class=MsoNormal style='text-align:justify'>Description: An Object using a
+certain Damage Style has just hit me.</p>
+
+<p class=MsoNormal style='text-align:justify'>The IDS file used is damages.ids,
+which you can find in the ScriptCompiler directory.</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>ACID&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+COLD&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CRUSHING&nbsp;&nbsp;&nbsp;
+ELECTRICITY FIRE</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>PIERCING&nbsp;&nbsp;&nbsp;
+MAGICCOLD&nbsp;&nbsp; POISON&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MISSILE</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>MAGICFIRE&nbsp;&nbsp;
+SLASHING&nbsp;&nbsp;&nbsp; MAGIC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+STUNNING&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+color:navy'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+color:navy'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>IF</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+HitBy([ANYTHING],POISON) &nbsp;&nbsp;&nbsp;&nbsp; // true if I was hit by
+something that caused a poison damage</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+HasItem(&quot;POTN20&quot;,Myself)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //Antidote</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>THEN</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RESPONSE
+#100</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+DisplayString(Myself,7029) &nbsp;&nbsp; //Antidote</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+UseItem(&quot;POTN20&quot;,Myself)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //Use antidote</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>END</span></p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b>HotKey(HotKey X)</b></p>
+
+<p class=MsoNormal style='text-align:justify'>Returns: Boolean(True or False)</p>
+
+<p class=MsoNormal style='text-align:justify'>Description: key X has just been
+pressed when I was the selected creature</p>
+
+<p class=MsoNormal style='text-align:justify'>The IDS file used is Hotkey.ids,
+which you can find in the ScriptCompiler directory. Currently hotkeys are
+restricted to letters A through Z.</p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>IF</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ActionListEmpty() // true if, I have no actions on my queue</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+HotKey(S)// true if, key S is pressed</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>THEN</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RESPONSE
+#100</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+VerbalConstant(Myself(),LEADER)// the selected player will say something</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+GlobalShout(1)// Send all in the area Heard trigger #1</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Wait(6)// seconds</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>END</span></p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b>Status Triggers</b></p>
+
+<p class=MsoNormal style='text-align:justify'>Status triggers are checked every
+time through the AI cycle.&nbsp; As a result they always apply if they are
+true.</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b>ActionListEmpty()</b></p>
+
+<p class=MsoNormal style='text-align:justify'><st1:State><st1:place>Id.</st1:place></st1:State>
+0x402B. Used in BG1, BG2 and IWD </p>
+
+<p class=MsoNormal style='text-align:justify'>Returns: Boolean (True or False)</p>
+
+<p class=MsoNormal style='text-align:justify'>Description: I have no current
+actions to complete.</p>
+
+<p class=MsoNormal style='text-align:justify'>ActionListEmpty() should only be
+used for things that are low priority. Do also keep in mind that when a
+character is given an action it is put on a queue. All actions will be run,
+eventually. If I am performing an action and get a call to do the same one
+again, the action will not be added until the first action has been completed.
+Actions are completed at different times: Spell is completed as soon as the
+casting animation is done, MoveToObject is completed once the character reaches
+the target or when it gives up.</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b>AreaType(Type)</b></p>
+
+<p class=MsoNormal style='text-align:justify'>Returns: Boolean (True or False)</p>
+
+<p class=MsoNormal style='text-align:justify'>This command checks to see if the
+current area is of&nbsp; a certain Type. The IDS file used is AreaType.ids,
+which you can find in the ScriptCompiler directory</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>IF</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+AreaType(CITY)</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>THEN</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RESPONSE
+#100</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+NoAction()</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>END</span></p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b>CheckStat(AnyObject, X, Stat)</b></p>
+
+<p class=MsoNormal style='text-align:justify'>Returns: Boolean (True or False)</p>
+
+<p class=MsoNormal style='text-align:justify'>True if the Object’s Statics is
+equal with X. (=X)</p>
+
+<p class=MsoNormal style='text-align:justify'>The IDS file used is Stats.ids, which
+you can find in the ScriptCompiler directory. Note. Be warned Bioware has not
+implemented many of the constants in the Stats file. I have used following:</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>CheckStat(Myself,0,MINORGLOBE)</span></p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b>CheckStatGT(AnyObject, X,
+Stat)</b></p>
+
+<p class=MsoNormal style='text-align:justify'>True if the Object’s Statics is
+greater than X. (&gt;X)</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>CheckStatGT(LastSeenBy(Myself),40,RESISTMAGIC)</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>CheckStatGT(Myself,1,ARMORCLASS)</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>CheckStatGT(LastSeenBy(Myself),8,SAVEVSSPELL)</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>CheckStatGT(LastSeenBy(Myself),1,NUMBEROFATTACKS)</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>CheckStatGT(LastSeenBy(Myself),9,SAVEVSPOLY)</span></p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b>CheckStatLT(AnyObject, X,
+Stat)</b></p>
+
+<p class=MsoNormal style='text-align:justify'>True if the Object’s Statics is
+less than X. (&lt;X)</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>CheckStatLT(Myself,1,STONESKINS)</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>CheckStatLT(LastSeenBy(Myself),31,RESISTCOLD)</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>CheckStatLT(LastSeenBy(Myself),31,RESISTFIRE)</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>CheckStatLT(LastSeenBy(Myself),31,RESISTACID)</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>CheckStatLT(LastSeenBy(Myself),50,RESISTELECTRICITY)</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>CheckStatLT(LastSeenBy(Myself),8,THAC0)</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>CheckStatLT(LastSeenBy(Myself),9,SAVEVSDEATH)</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>CheckStatLT(LastSeenBy(Myself),9,SAVEVSWANDS)</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>CheckStatLT(LastSeenBy(Myself),9,SAVEVSPOLY)</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>CheckStatLT(LastSeenBy(Myself),9,SAVEVSBREATH)</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>CheckStatLT(LastSeenBy(Myself),5,LEVEL)</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>CheckStatLT(LastSeenBy(Myself),31,RESISTMISSILE)</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>CheckStatLT(LastSeenBy(Myself),31,RESISTPIERCING)</span></p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b>Class(AnyObject, Class)</b></p>
+
+<p class=MsoNormal style='text-align:justify'>Returns: Boolean (True or False)</p>
+
+<p class=MsoNormal style='text-align:justify'>The Object is of the Class
+specified. The IDS file used is Class.ids, which you can find in the
+ScriptCompiler directory.</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>// ** Check if I have chosen a valid
+target</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>IF</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Exists([ENEMY])</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; OR(2)</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+InParty(LastSeenBy())</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Class(LastSeenBy(Myself),INNOCENT)</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>THEN</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RESPONSE
+#100</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ClearActions()&nbsp;&nbsp;&nbsp; //sorry wrong target restart</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>END</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-align:justify'><b>CombatCounter(Number)</b></p>
+
+<p class=MsoNormal style='text-align:justify'>Returns: Boolean (True or False)</p>
+
+<p class=MsoNormal style='text-align:justify'>The combat counter is set to 150
+every time an attack is made and decreases from there.&nbsp; A value of 0 means
+that there is definitely no combat.</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>// ** FINDTRAPS</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>IF</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ActionListEmpty()</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+!Exists([ENEMY])</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+CombatCounter(0)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// true if&nbsp; the combat counter = 0</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+!ModalState(DETECTTRAPS)</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+StateCheck(Myself,STATE_INVISIBLE) </span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>THEN</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RESPONSE
+#100</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+FindTraps()</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>END</span></p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b>CombatCounterGT(Number)</b></p>
+
+<p class=MsoNormal style='text-align:justify'>Note. I am not sure that this
+trigger works</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b>CombatCounterLT(Number)</b></p>
+
+<p class=MsoNormal style='text-align:justify'>Note. I am not sure that this
+trigger works</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b>Delay(Number)</b></p>
+
+<p class=MsoNormal style='text-align:justify'>Returns: Boolean (True or False)</p>
+
+<p class=MsoNormal style='text-align:justify'>Description: returns False except
+every X seconds</p>
+
+<p class=MsoNormal style='text-align:justify'>This command is used to delay the
+actions of a starting condition so they do not happen every time the script is
+checked. The delay value is in seconds.</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>// ** Hide the Rogue</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>IF</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Delay(20)</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+!ModalState(DETECTTRAPS)</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+!ModalState(STEALTH)</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+!StateCheck(Myself,STATE_INVISIBLE) </span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+!StateCheck(Myself,STATE_IMPROVEDINVISIBILITY)</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>THEN</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RESPONSE
+#100</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hide()</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>END</span></p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b>Detect(ObjectType)</b></p>
+
+<p class=MsoNormal style='text-align:justify'>Returns: Boolean (True or False)</p>
+
+<p class=MsoNormal style='text-align:justify'>The Object may not be visible but
+is within sight range.</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>IF</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Detect([ENEMY])</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+HaveSpell(WIZARD_DETECT_INVISIBILITY)</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+!See(NearestEnemyOf(Myself))</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+GlobalTimerExpired(&quot;GR_UsedDetectInvisibility&quot;,&quot;LOCALS&quot;)</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>THEN</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RESPONSE
+#100</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+SetGlobalTimer(&quot;GR_UsedDetectInvisibility&quot;,&quot;LOCALS&quot;,240)</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+SpellNoDec(Myself,WIZARD_DETECT_INVISIBILITY)</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>END</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-align:justify'><b>Exists(AnyObject)</b></p>
+
+<p class=MsoNormal style='text-align:justify'>Returns: Boolean (True or False)</p>
+
+<p class=MsoNormal style='text-align:justify'>Description: Is X a valid
+ObjectType?</p>
+
+<p class=MsoNormal style='text-align:justify'>Note. Exists is excellent to use
+in conjunction with LastSeenBy because it will not change the target chosen by
+an earlier See(AnyObject) condition in a targeting module.</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>// ** Check if I can use an area spell
+such as, fireball, stinking cloud, etc</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>IF</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Exists([ENEMY])</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+NumCreatureGT([ENEMY],2)</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+!Range([PC],18)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// check range to nearest PC</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+!Range(LastSeenBy(),18)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // check that
+target is not to close</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>THEN</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RESPONSE
+#100</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+SetGlobal(&quot;GR_CanUseAreaSpell&quot;,&quot;LOCALS&quot;,1)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+//Yes</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Continue()</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>END</span></p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b>Global(Name, Area, Value)</b></p>
+
+<p class=MsoNormal style='text-align:justify'>Returns: Boolean (True or False)</p>
+
+<p class=MsoNormal style='text-align:justify'>Check the status of a global
+variable. Is ‘Name = Value’</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b>GlobalGT(Name, Area, Value)</b></p>
+
+<p class=MsoNormal style='text-align:justify'>Returns: Boolean (True or False)</p>
+
+<p class=MsoNormal style='text-align:justify'>Check the status of a global
+variable. Is ‘Name &gt; Value’. The Name must be in quotes and can be 32 chars
+long. The Area must also be in quotes. I can only use LOCALS, which can be
+accessed by Myself. The default value is 0.</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>IF</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Exists([ENEMY])</span></p>
+
+<p class=MsoNormal style='text-align:justify;text-indent:36.0pt'><span
+style='font-size:10.0pt;font-family:"Courier New";color:navy'>GlobalGT(&quot;GR_InitilaizeTimers&quot;,&quot;LOCALS&quot;,0)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+//true if variable GR_InitialiseTimersLOCALS&gt;0</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>THEN</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RESPONSE
+#100</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+SetGlobal(&quot;GR_InitilaizeTimers&quot;,&quot;LOCALS&quot;,0)&nbsp;&nbsp;&nbsp;&nbsp;
+//set variable GR_InitialiseTimersLOCALS=0</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Continue()</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>END</span></p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b>GlobalLT(Name, Area, Value)</b></p>
+
+<p class=MsoNormal style='text-align:justify'>Returns: Boolean (True or False)</p>
+
+<p class=MsoNormal style='text-align:justify'>Check the status of a global
+variable. Is ‘Name &lt; Value’</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b>GlobalTimerExpired(Name, Area)</b></p>
+
+<p class=MsoNormal style='text-align:justify'>Returns: Boolean (True or False)</p>
+
+<p class=MsoNormal style='text-align:justify'>Checks the status of a global
+timer. Is ‘Name = 0’. This module will cast the spell with 24 seconds intervals</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>IF</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Exists([ENEMY])</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+HaveSpell(WIZARD_MANTLE)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// this spell will last for 4 rounds</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+HPPercentLT(Myself,40)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+//If my hitpoints are less than 40</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+GlobalTimerExpired(&quot;GR_UsedMantle&quot;,&quot;LOCALS&quot;)&nbsp;&nbsp;&nbsp;
+// true if the timer is 0</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>THEN</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RESPONSE
+#100</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+SetGlobalTimer(&quot;GR_UsedMantle&quot;,&quot;LOCALS&quot;,24)// 4 rounds is
+24 seconds</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Spell(Myself,WIZARD_MANTLE)</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>END</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-align:justify'>Note. A Globaltimer must be
+initialized before you can use it. One way was to use
+!GlobalTimerNotExpired(“Name”,”LOCALS”) but I found that this method is not
+reliable. The safest way is to use an initializing module as the first module
+in a script.</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>// ** all new combat timers should be
+added to the this list.</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>// ** timers are reset to zero once after
+a combat.</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>IF</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+!Exists([ENEMY])</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Global(&quot;GR_InitilaizeTimers&quot;,&quot;LOCALS&quot;,0)// must be done
+prior to use</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>THEN</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RESPONSE
+#100</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+SetGlobalTimer(&quot;GR_ UsedMantle &quot;,&quot;LOCALS&quot;,0)// fixed value</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+SetGlobal(&quot;GR_InitilaizeTimers&quot;,&quot;LOCALS&quot;,1)</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>END</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>.</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>// some other modules</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>.</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>// this is the first module in the combat
+target analyze section</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;IF</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Exists([ENEMY])</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+GlobalGT(&quot;GR_InitializeTimers&quot;,&quot;LOCALS&quot;,0)// true if
+variable GR_InitilaizeTimersLOCALS&gt;0</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>THEN</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RESPONSE
+#100</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+SetGlobal(&quot;GR_InitializeTimers&quot;,&quot;LOCALS&quot;,0)// set variable
+GR_InitilaizeTimersLOCALS=0</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Continue()</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>END </span></p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'>Note. It is important to reset
+all combat timers to 0 when combat is over. All globals and values are saved in
+the savegame, timers will be saved in their current state.</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b>GlobalTimerNotExpired(Name,
+Area)</b></p>
+
+<p class=MsoNormal style='text-align:justify'>Returns: Boolean (True or False)</p>
+
+<p class=MsoNormal style='text-align:justify'>Checks the status of a global
+timer. Is ‘Name &gt; 0’. Note. I have not used this </p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b>HaveSpell(Spell)</b></p>
+
+<p class=MsoNormal style='text-align:justify'>Returns: Boolean (True or False)</p>
+
+<p class=MsoNormal style='text-align:justify'>This command check to see if I
+have the specified Spell memorized. The IDS file used is Spell.ids</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>IF</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Exists([ENEMY])</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+HaveSpell(WIZARD_DEATH_SPELL)</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+See([EVILCUTOFF.0.0.0.0.SUMMONED])</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+!Range(LastSeenBy(Myself),12)</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>THEN</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RESPONSE
+#100</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Spell(LastSeenBy(Myself),WIZARD_DEATH_SPELL)</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>END</span></p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b>HaveAnySpells()</b></p>
+
+<p class=MsoNormal style='text-align:justify'>Returns: Boolean (True or False)</p>
+
+<p class=MsoNormal style='text-align:justify'>This command check to see if I
+have any spells memorized. Note. I have not used this, but I think it works.</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b>HasItem(Item, AnyObject)</b></p>
+
+<p class=MsoNormal style='text-align:justify'>Returns: Boolean (True or False)</p>
+
+<p class=MsoNormal style='text-align:justify'>This command check to see if the
+Object has the Item specified.</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>IF</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+HasItem(&quot;POTN08&quot;,Myself)</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+HPPercentLT(Myself,50)</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>THEN</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RESPONSE
+#100</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+DisplayString(Myself,6990)//Healing</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ActionOverride(Myself,UseItem(&quot;POTN08&quot;,Myself))</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>END</span></p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b>HasItemEquiped(Item, Object)</b></p>
+
+<p class=MsoNormal style='text-align:justify'>Returns: Boolean (True or False)</p>
+
+<p class=MsoNormal style='text-align:justify'>This command check to see if the
+Object has the specified Item equipped.</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>IF</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+See([ENEMY])</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+HasItemEquiped(&quot;WAND10&quot;,Myself)//Wand of Monster Summoning</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Range(LastSeenBy(),15)</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+NumCreatureGT([ENEMY],2)</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+NumCreatureLT([GOODCUTOFF.0.0.0.0.SUMMONED],2)</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+HPGT(LastSeenBy(Myself),30)</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>THEN</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RESPONSE
+#100</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+DisplayString(Myself,7272)//Wand of Monster Summoning</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+UseItem(&quot;WAND10&quot;,LastSeenBy())</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>END</span></p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b>HasWeaponEquiped(Object)</b></p>
+
+<p class=MsoNormal style='text-align:justify'>Returns: Boolean (True or False)</p>
+
+<p class=MsoNormal style='text-align:justify'>This command check to see if the
+Object has a weapon equipped. Note. I have not used this, but this module
+works.</p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>IF</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+HasWeaponEquiped(&quot;Nalia&quot;)</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>THEN</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RESPONSE
+#100</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+DisplayStringHead(Myself,9102)//Nalia</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>END</span></p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b>InParty(Object)</b></p>
+
+<p class=MsoNormal style='text-align:justify'>Returns: Boolean (True or False)</p>
+
+<p class=MsoNormal style='text-align:justify'>This command checks to see if the
+Object is in the party.</p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>IF</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Exists([ENEMY])</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; OR(2)</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+InParty(LastSeenBy())</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Class(LastSeenBy(Myself),INNOCENT)</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>THEN</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RESPONSE
+#100</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ClearActions()&nbsp;&nbsp;&nbsp; //sorry wrong target clear my actions and
+restart the script</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>END</span></p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b>InWeaponRange(Object)</b></p>
+
+<p class=MsoNormal style='text-align:justify'>Returns: Boolean (True or False)</p>
+
+<p class=MsoNormal style='text-align:justify'>This command checks to see if the
+Object is within my current weapon’s range.</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>// ** Check if target is a Troll and
+almost dead</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>IF</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Exists([ENEMY])&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// true if there are any enemies with visual range</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+See(NearestEnemyOf(Myself))&nbsp;&nbsp; //true if I can see the nearest enemy
+of myself &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>THEN</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RESPONSE
+#100</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+EquipRanged()</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Continue()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// with next module </span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>END</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>IF</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Exists([ENEMY])</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Race(LastSeenBy,TROLL)</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+!Range(LastSeenBy(),6)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // true if my
+distance to the target is &gt;6 ssq.</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+InWeaponRange(LastSeenBy())&nbsp;&nbsp; // true if I have a ranged weapon
+equipped </span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+HPLT(LastSeenBy(),10)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // true
+if target has &lt; 10 hit points</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>THEN</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RESPONSE
+#100</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+SelectWeaponAbility(SLOT_AMMO2,0) // ** right ammo slot for special ammo</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+AttackOneRound(LastSeenBy())&nbsp; // attack target for 6 sec.</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>END</span></p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b>ModalState(I:State*MODAL)</b></p>
+
+<p class=MsoNormal style='text-align:justify'>Returns: Boolean (True or False)</p>
+
+<p class=MsoNormal style='text-align:justify'>The IDS file used is Modal.ids,
+which you can find in the ScriptCompiler directory</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>// ** Hide the Rogue</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>IF</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Delay(20)</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+!ModalState(DETECTTRAPS)</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+!ModalState(STEALTH)</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+!StateCheck(Myself,STATE_INVISIBLE) </span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+!StateCheck(Myself,STATE_IMPROVEDINVISIBILITY)</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>THEN</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RESPONSE
+#100</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hide()</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>END</span></p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b>Name(Name, Object)</b></p>
+
+<p class=MsoNormal style='text-align:justify'>Checks the Object’s scriptname.</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>IF</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Name(&quot;Nalia&quot;,Myself)&nbsp;&nbsp;&nbsp; // true if&nbsp; I am Nalia</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>THEN</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RESPONSE
+#100</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+DisplayStringHead(Myself,9102)//Nalia</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Continue()</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>END</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-align:justify'><b>NumCreature(ObjectType,
+Number)</b></p>
+
+<p class=MsoNormal style='text-align:justify'>Returns: Boolean (True or False)</p>
+
+<p class=MsoNormal style='text-align:justify'>Description: Is the number of
+ObjectType visible Equal to Number</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b>NumCreatureLT(Object, Number)</b></p>
+
+<p class=MsoNormal style='text-align:justify'>Returns: Boolean (True or False)</p>
+
+<p class=MsoNormal style='text-align:justify'>Description: Is the number of
+ObjectType visible less than Number </p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>IF</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+See([ENEMY])</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+HasItemEquiped(&quot;WAND10&quot;,Myself)//Wand of Monster Summoning</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Range(LastSeenBy(),15)</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+NumCreatureGT([ENEMY],2)</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+NumCreatureLT([GOODCUTOFF.0.0.0.0.SUMMONED],2)</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+HPGT(LastSeenBy(Myself),30)</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>THEN</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RESPONSE
+#100</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+DisplayString(Myself,7272)//Wand of Monster Summoning</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+UseItem(&quot;WAND10&quot;,LastSeenBy())</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-family:"Courier New";
+color:navy'>END</span></p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b>NumCreatureGT(Object, Number)</b></p>
+
+<p class=MsoNormal style='text-align:justify'>Returns: Boolean (True or False)</p>
+
+<p class=MsoNormal style='text-align:justify'>Description: Is the number of
+ObjectType visible greater than Number</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b>OR(Lines) </b></p>
+
+<p class=MsoNormal style='text-align:justify'>Returns: Boolean (True or False)</p>
+
+<p class=MsoNormal style='text-align:justify'>This command is used to OR a
+number of lines together. Note: if the lines are not constrained by an OR()
+group then they are ANDed together.</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>IF</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; OR(2)</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Name(&quot;Imoen&quot;,Myself)</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Name(&quot;Imoen2&quot;,Myself)</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>THEN</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RESPONSE
+#100</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+DisplayStringHead(Myself,9102)//Nalia</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Continue()</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>END</span></p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b>OutOfAmmo()</b></p>
+
+<p class=MsoNormal style='text-align:justify'>Returns: Boolean (True or False)</p>
+
+<p class=MsoNormal style='text-align:justify'>My weapon is out of ammo. Note. I
+have never found that this works. A work around is</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>IF</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Exists([ENEMY])</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+!Range(LastSeenBy(),4)</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>THEN</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RESPONSE
+#100</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+EquipRanged()</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Continue()</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>END</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>IF</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Exists([ENEMY])</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+!Range(LastSeenBy(),4)</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+InWeaponRange(LastSeenBy())&nbsp;&nbsp; // is False, if EquipRanged() failed</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>THEN</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RESPONSE
+#100</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+AttackOneRound(LastSeenBy())</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>END</span></p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b>Range(AnyObject, X)</b></p>
+
+<p class=MsoNormal style='text-align:justify'>Returns: Boolean (True or False)</p>
+
+<p class=MsoNormal style='text-align:justify'>The Object is within X search
+squares. You can see max 25 ssq.</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>Range(NearestEnemyOf (),15)&nbsp;&nbsp;
+// true if distance to my nearest enemy is less than 15 ssq.</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>!Range(NearestEnemyOf (),15)&nbsp; //
+true if distance to my nearest enemy is more than 15 ssq.&nbsp; </span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+color:navy'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-align:justify'><b>StateCheck(Object, State)</b></p>
+
+<p class=MsoNormal style='text-align:justify'>The Object is in the specified
+State.</p>
+
+<p class=MsoNormal style='text-align:justify'>The IDS file used is State.ids,
+which you can find in the ScriptCompiler directory.</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b>See(AnyObject)</b></p>
+
+<p class=MsoNormal style='text-align:justify'>Returns: Boolean (True or False)</p>
+
+<p class=MsoNormal style='text-align:justify'>The Object is visible to me.</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b>True()</b></p>
+
+<p class=MsoNormal style='text-align:justify'>Description: Always returns True.</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b><span style='font-size:14.0pt'>Actions:</span></b></p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b>NoAction()</b></p>
+
+<p class=MsoNormal style='text-align:justify'>This command does nothing.</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b>ActionOverride(Object, Action)</b></p>
+
+<p class=MsoNormal style='text-align:justify'>This command passes the specified
+Action to the Object.&nbsp; This is used to have one creature tell another to
+do something.&nbsp; Eg. </p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>ActionOverride(“Nalia”, Wait(1))</span></p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b>Attack(Object)</b></p>
+
+<p class=MsoNormal style='text-align:justify'>This command is used to attack an
+Object until unusable.</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b>AttackReevaluate(Object,
+Period)</b></p>
+
+<p class=MsoNormal style='text-align:justify'>This command is used to attack an
+Object for a Period of time.</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b>AttackOneRound(Object)</b></p>
+
+<p class=MsoNormal style='text-align:justify'>This command is used to attack an
+Object for one round.</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b>Continue()</b></p>
+
+<p class=MsoNormal style='text-align:justify'>Continue through the script
+without leaving. This is very useful to keep a number of modules together. </p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b>ClearActions(Object)</b></p>
+
+<p class=MsoNormal style='text-align:justify'>This command will clear the
+actions of the Object.</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>IF</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+See([ENEMY])</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; OR(2)</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+InParty(LastSeenBy())</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Class(LastSeenBy(Myself),INNOCENT)</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>THEN</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RESPONSE
+#100</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ClearActions()&nbsp;&nbsp;&nbsp; //sorry wrong target clear my actions and
+restart the script</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>END</span></p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b>DisplayString(Object, StrRef)</b></p>
+
+<p class=MsoNormal style='text-align:justify'>StrRef is an integer pointer to a
+certain string in the games dialog library. I can not create new strings. This
+command displays the String in the dialog window originating from the Object.</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b><i>Additional Notes on Adding
+Strings</i></b></p>
+
+<p class=MsoNormal style='text-align:justify'><i>It is possible to add new
+strings to dialog.tlk using a program such as WeiDU or Near Infinity. You would
+only really do this if you were scripting a new mod and then you would do it
+using the WeiDU .tra and .tp2 functions.</i></p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>IF</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Name(&quot;Nalia&quot;,Myself)&nbsp;&nbsp;&nbsp; // true if&nbsp; I am Nalia</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>THEN</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RESPONSE
+#100</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+DisplayString(Myself,9102)//Nalia</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Continue()</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>END</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-align:justify'>In the dialog window you will
+read Nalia – Nalia</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b>DisplayStringHead(Object,StrRef)</b></p>
+
+<p class=MsoNormal style='text-align:justify'>Displays the specified string
+over the object’s head</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>IF</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Name(&quot;Nalia&quot;,Myself)&nbsp;&nbsp;&nbsp; // true if&nbsp; I am Nalia</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>THEN</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RESPONSE
+#100</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+DisplayStringHead(Myself,9102)//Nalia</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Continue()</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>END</span></p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'>This will display the word Nalia
+above her head</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b>EquipItem(Item)</b></p>
+
+<p class=MsoNormal style='text-align:justify'>Equip the specified Item.</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b>FaceObject(Object)</b></p>
+
+<p class=MsoNormal style='text-align:justify'>Face the specified Object.</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b>GiveItem(Item, Object)</b></p>
+
+<p class=MsoNormal style='text-align:justify'>Give the Item, must be in the
+inventory, to the Object.</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b>Hide()</b></p>
+
+<p class=MsoNormal style='text-align:justify'>Try to hide in shadows.</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b>RunAwayFrom(Object, Time)</b></p>
+
+<p class=MsoNormal style='text-align:justify'>Run away from the Object for a
+specified Time.&nbsp; The time is in 15ths of a second.</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b>IncrementGlobal(Name, Area,
+Value)</b></p>
+
+<p class=MsoNormal style='text-align:justify'>Increments the Global by the
+Value.</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b>MoveToObject(Object)</b></p>
+
+<p class=MsoNormal style='text-align:justify'>Move to the Object
+specified.&nbsp; Will not move to an unseen Object unless you are using the
+scriptname or Player1 – Player6. The MoveToObject action generally must finish
+before a new action can be run. I do not know of a way to make a party member
+stop before the action is complete.</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b>MoveToObjectFollow(Object)</b></p>
+
+<p class=MsoNormal style='text-align:justify'>Move to the Object specified and
+follow until another condition becomes True.</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>IF</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ActionListEmpty()</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Heard([PC],1001)</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+!Range(LastHeardBy(),12)</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>THEN</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RESPONSE
+#100</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+SetInterrupt(FALSE)</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+MoveToObjectFollow(LastHeardBy()) // Myself will walk to the caller without any
+delay</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+SetInterrupt(TRUE)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>END</span></p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'>Note. The party members will stop
+a couple of ssq. behind the caller.&nbsp; </p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b>MoveToObjectNoInterrupt(Object)</b></p>
+
+<p class=MsoNormal style='text-align:justify'>Move to the Object specified
+until completed.</p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>IF</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Heard([PC],1001)</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>THEN</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RESPONSE
+#100</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+MoveToObjectNoInterrupt(LastHeardBy())</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>END</span></p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'>Note. This is will make Myself
+walk to, and bump into the caller. </p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b>EquipRanged()</b></p>
+
+<p class=MsoNormal style='text-align:justify'>This command will equip a ranged
+weapon carried by the player e.g. bow, sling, crossbow.</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b>EquipMostDamagingMelee()</b></p>
+
+<p class=MsoNormal style='text-align:justify'>This command will equip the most
+powerful melee weapon in my inventory.</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b>ForceSpell(Object, Spell)</b></p>
+
+<p class=MsoNormal style='text-align:justify'>Cast the Spell at the specified
+Object with no interruptions.</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b>Gender(Object, Gender)</b></p>
+
+<p class=MsoNormal style='text-align:justify'>The Object is of the Gender
+specified.</p>
+
+<p class=MsoNormal style='text-align:justify'>The IDS file used is Gender.ids,
+which you can find in the ScriptCompiler directory.</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>MALE</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>FEMALE</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>SUMMONED</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>ILLUSIONARY&nbsp; </span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>EXTRA</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>SUMMONED_DEMON</span></p>
+
+<p class=MsoNormal style='text-align:justify'>Etc.</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b>General(Object, General)</b></p>
+
+<p class=MsoNormal style='text-align:justify'>The Object is of the <st1:place><st1:PlaceName>General</st1:PlaceName>
+ <st1:PlaceType>State</st1:PlaceType></st1:place> specified.</p>
+
+<p class=MsoNormal style='text-align:justify'>The IDS file used is General.ids,
+which you can find in the ScriptCompiler directory.</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b>GlobalShout(Number)</b></p>
+
+<p class=MsoNormal style='text-align:justify'>Description: Shout out a Heard
+trigger Number to anyone within the area. </p>
+
+<p class=MsoNormal style='text-align:justify'>Eg GlobalShout(136842) will set
+the event trigger Heard([PC], 136842) to true. You can use any number. </p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>IF</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ActionListEmpty() &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// true if, I have no actions on my queue</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+HotKey(S)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// true if, key S is pressed</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>THEN</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RESPONSE
+#100</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+VerbalConstant(Myself(),LEADER)&nbsp;&nbsp;&nbsp;&nbsp; // the selected player
+will say something</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+GlobalShout(1)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// Send all in the area Heard trigger #1</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Wait(6)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// seconds</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>END</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-align:justify'><b>HasBounceEffects(O:Object*) </b></p>
+
+<p class=MsoNormal style='text-align:justify'>Object has magical shields up
+that will bounce any attacks back to the attacker e.g. Physical Mirror</p>
+
+<p class=MsoNormal style='text-align:justify'><b>&nbsp;</b></p>
+
+<p class=MsoNormal style='text-align:justify'><b>HasImmunityEffects(O:Object*)</b></p>
+
+<p class=MsoNormal style='text-align:justify'>Object has magical immunity to
+any attacks e.g. Protection from Normal Weapons</p>
+
+<p class=MsoNormal style='text-align:justify'><b>&nbsp;</b></p>
+
+<p class=MsoNormal style='text-align:justify'><b>HP(Object, X)</b></p>
+
+<p class=MsoNormal style='text-align:justify'>Object has X number of hitpoints</p>
+
+<p class=MsoNormal style='text-align:justify'><b>&nbsp;</b></p>
+
+<p class=MsoNormal style='text-align:justify'><b>HPGT(Object, X)</b></p>
+
+<p class=MsoNormal style='text-align:justify'>Object has a greater number of
+hitpoints than X</p>
+
+<p class=MsoNormal style='text-align:justify'><b>&nbsp;</b></p>
+
+<p class=MsoNormal style='text-align:justify'><b>HPLT(Object, X)</b></p>
+
+<p class=MsoNormal style='text-align:justify'>Object has a lesser number of
+hitpoints than X</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b>HPPercent(Object, X)</b></p>
+
+<p class=MsoNormal style='text-align:justify'>Object has X percentage of
+hitpoints</p>
+
+<p class=MsoNormal style='text-align:justify'><b>&nbsp;</b></p>
+
+<p class=MsoNormal style='text-align:justify'><b>HPPercentLT(Object, X)</b></p>
+
+<p class=MsoNormal style='text-align:justify'>Object has a lesser percentage of
+hitpoints than X</p>
+
+<p class=MsoNormal style='text-align:justify'><b>&nbsp;</b></p>
+
+<p class=MsoNormal style='text-align:justify'><b>HPPercentGT(Object, X)</b></p>
+
+<p class=MsoNormal style='text-align:justify'>Object has a greater percentage
+of hitpoints than X</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b>Kit(Object, Kit)</b></p>
+
+<p class=MsoNormal style='text-align:justify'>The Object is of the Kit
+specified.</p>
+
+<p class=MsoNormal style='text-align:justify'>The IDS file used is Kit.ids,
+which you can find in the ScriptCompiler directory.</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b>Race(Object, Race)</b></p>
+
+<p class=MsoNormal style='text-align:justify'>The Object is of the Race
+specified.</p>
+
+<p class=MsoNormal style='text-align:justify'>The IDS file used is Race.ids,
+which you can find in the ScriptCompiler directory.</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b>RunAwayFromNoInterrupt(Object,
+Time)</b></p>
+
+<p class=MsoNormal style='text-align:justify'>Run away from the Object for a
+specified Time without being interrupted.</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b>SetGlobal(Name, Area, Value)</b></p>
+
+<p class=MsoNormal style='text-align:justify'>The Name must be in quotes and
+can be 32 chars long. The Area must also be in quotes. I can only use LOCALS,
+which can be accessed by Myself.</p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>IF</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Exists([ENEMY])</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+GlobalGT(&quot;GR_InitilaizeTimers&quot;,&quot;LOCALS&quot;,0)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// true if variable GR_InitilaizeTimersLOCALS&gt;0</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>THEN</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RESPONSE
+#100</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+SetGlobal(&quot;GR_InitilaizeTimers&quot;,&quot;LOCALS&quot;,0)// set variable
+GR_InitilaizeTimersLOCALS=0</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Continue()</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>END</span></p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b>SetGlobalTimer(“Name”,”Area”,Time)</b></p>
+
+<p class=MsoNormal style='text-align:justify'>The Name must be in quotes and
+can be 32 chars long. The Area must be “LOCALS” and must also be in quotes.
+Time is a value in seconds. I only use this for spells that last a certain
+time. The time is given in rounds or turns and 1 round is 6 seconds, 1turn is
+ten rounds or 60 seconds. </p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>IF</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Exists([ENEMY])</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+HaveSpell(WIZARD_MANTLE)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // this spell will last
+for 4 rounds</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+HPPercentLT(Myself,40)</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+GlobalTimerExpired(&quot;GR_UsedMantle&quot;,&quot;LOCALS&quot;)</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>THEN</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RESPONSE
+#100</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+SetGlobalTimer(&quot;GR_UsedMantle&quot;,&quot;LOCALS&quot;,24)// 4 rounds is
+24 seconds</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Spell(Myself,WIZARD_MANTLE)</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>END</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-align:justify'><b>SetInterrupt(Boolean)</b></p>
+
+<p class=MsoNormal style='text-align:justify'>Description: Turn interrupt on or
+off.</p>
+
+<p class=MsoNormal style='text-align:justify'>Set the interruption of current
+actions to True/False.</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>IF</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ActionListEmpty()</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Heard([PC],1)</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+!Range(LastHeardBy(),12)</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Delay(3)</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>THEN</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RESPONSE
+#100</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+SetInterrupt(FALSE)</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+MoveToObject(LastHeardBy())</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+SetInterrupt(TRUE)</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>END</span></p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b>SelectWeaponAbility(I:WeaponNum*Slots,I:AbilityNum*)</b></p>
+
+<p class=MsoNormal style='text-align:justify'>SelectWeaponAbility(I:WeaponNum*Slots,I:AbilityNum*)
+was used for selecting a quick weapon or ammo slot. It was used before
+EquipRanged and EquipMostDamagingMelee. The AbilityNum is only used for weapon
+abilities such as Melee or Thrown like for a throwing axe.</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b>Shout(Number)</b></p>
+
+<p class=MsoNormal style='text-align:justify'>Description: Shout out a Heard
+trigger Number to anyone within sight range. </p>
+
+<p class=MsoNormal style='text-align:justify'>Eg Shout(136842) will set the
+event trigger Heard([PC], 136842) to true. You can use any integer.</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b>Spell(Object, Spell)</b></p>
+
+<p class=MsoNormal style='text-align:justify'>Cast the Spell at the specified
+Object.</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b>SpellNoDec(Object, Spell)</b></p>
+
+<p class=MsoNormal style='text-align:justify'>Cast the Spell at the specified
+Object and keep it memorized.</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b>VerbalConstant(O:Object*,I:Constant*soundOff)</b></p>
+
+<p class=MsoNormal style='text-align:justify'>The IDS file used is
+soundOff.ids, which you can find in the ScriptCompiler directory.</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>IF</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ActionListEmpty()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp; // true if, I have no actions on my queue</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+HotKey(S)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// true if, key S is pressed</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>THEN</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RESPONSE
+#100</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+VerbalConstant(Myself(),LEADER)&nbsp;&nbsp;&nbsp;&nbsp; // the selected player
+will say something</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+GlobalShout(1)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// Send all in the area Heard trigger #1</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Wait(6)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// seconds</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>END</span></p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b>Wait(Time)</b></p>
+
+<p class=MsoNormal style='text-align:justify'>Wait for the specified
+Time.&nbsp; The time is in seconds.</p>
+
+<p class=MsoNormal style='text-align:justify'><b>&nbsp;</b></p>
+
+<p class=MsoNormal style='text-align:justify'><b>&nbsp;</b></p>
+
+<p class=MsoNormal style='text-align:justify'><b>Horred’s Findings</b></p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><i>Note: I am unsure from the
+posting whether these apply specifically to IWDII or to BG2. With this in mind,
+use with caution.</i></p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'>OBJECT.IDS </p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>0
+Nothing&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ---parses into [ANYONE] </span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>1
+Myself&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ---works! </span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>2 LeaderOf
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ---Not Tested </span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>3 GroupOf
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ---hopelessly screwed </span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>4 WeakestOf
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+---only detects PC's </span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>5 StrongestOf
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+---only detects PC's </span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>6 MostDamagedOf
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+---only detects PC's </span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>7 LeastDamagedOf&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ---only detects PC's </span></p>
+
+<p class=MsoNormal style='margin-left:108.0pt;text-align:justify;text-indent:
+-108.0pt'><span style='font-size:10.0pt;font-family:"Courier New";color:navy'>8
+ProtectedBy &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ---Not
+tested; should work in conjuction with&nbsp;&nbsp; the working action</span></p>
+
+<p class=MsoNormal style='margin-left:180.0pt;text-align:justify;text-indent:
+36.0pt'><span style='font-size:10.0pt;font-family:"Courier New";color:navy'>Protect(O:Object*,I:Range*)
+</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>9 ProtectorOf
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+---see above </span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>10
+LastAttackerOf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ---works! </span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>11 LastTargetedBy
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+---hopelessly screwed </span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>12 NearestEnemyOf
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ---works! </span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>13 LastCommandedBy
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ---not tested </span></p>
+
+<p class=MsoNormal style='margin-left:180.0pt;text-align:justify;text-indent:
+-180.0pt'><span style='font-size:10.0pt;font-family:"Courier New";color:navy'>14
+Nearest
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+---cannot be &quot;nested&quot; </span></p>
+
+<p class=MsoNormal style='margin-left:180.0pt;text-align:justify;text-indent:
+36.0pt'><span style='font-size:10.0pt;font-family:"Courier New";color:navy'>e.g.,
+Nearest([EVILCUTOFF.0.0.MAGE]) will not work</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>15 LastHitter
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+---works! </span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>16 LastHelp
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+---not tested </span></p>
+
+<p class=MsoNormal style='margin-left:180.0pt;text-align:justify;text-indent:
+-180.0pt'><span style='font-size:10.0pt;font-family:"Courier New";color:navy'>17
+LastTrigger
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+---works for traps, and detects &quot;Last Caster of a Mage Spell&quot; </span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>18 LastSeenBy
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+---works! </span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>19 LastTalkedToBy
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ---works! </span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>20 LastHeardBy
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+---works! </span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>21-26 Player(X)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+---works! </span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>27 Protagonist
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+---seems to work... </span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>28
+StrongestOfMale&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+---not tested, probably detects PC's only </span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>29-37 (X)NearestEnemyOf
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ---works! </span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>38-46 (X)Nearest
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ---see
+Nearest (above) </span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>47 WorstAC
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ---only detects PC's </span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>48 BestAC
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ---only detects PC's </span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>49 LastSummonerOf
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ---works;
+simulacrums, etc. aren't &quot;summoned&quot; </span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>50-59 (X)NearestEnemyOfType &nbsp;
+---works! </span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>60-69 (X)NearestMyGroupOfType ---works! </span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>70-75 Player(X)Fill
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ---not tested </span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>76-85 (X)NearestDoor
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ---hopelessly screwed </span></p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'>TRIGGER.IDS </p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>0x40B4 InMyGroup(O:Object*) &nbsp;
+---hopelessly screwed</span></p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'>Another thing I discovered: you
+can't use [GOODCUTOFF], etc for state checks. It has to be an actual object! </p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'>WRONG:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style='font-size:10.0pt;font-family:
+"Courier New";color:navy'>StateCheck([GOODCUTOFF],STATE_MIRRORIMAGE)</span><span
+style='font-family:"Courier New";color:navy'> </span></p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'>RIGHT:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span
+style='font-size:10.0pt;font-family:"Courier New";color:navy'>See([GOODCUTOFF])</span><span
+style='font-size:10.0pt;color:navy'> </span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;text-align:justify;text-indent:
+36.0pt'><span style='font-size:10.0pt;font-family:"Courier New";color:navy'>StateCheck(LastSeenBy(Myself),STATE_MIRRORIMAGE)
+</span></p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'>Also, [GOODCUTOFF],
+NearestEnemyOf(Myself), etc. </p>
+
+<p class=MsoNormal style='text-align:justify'>---i.e., anything that implies a
+proximity check is sight-dependent!!! </p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'>You'll never get a valid (true)
+answer from, say: </p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>StateCheck(SecondNearestEnemyOf(Myself),STATE_INVISIBLE)
+</span></p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'>because if the second nearest
+enemy is invisible, they are automatically disqualified for a Nearest,
+SecondNearest, etc, check. Now, a check like: </p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>StateCheck(LastAttackerOf(Myself),STATE_INVISIBLE)
+</span></p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'>should work fine, because you
+don't need to see you last attacker to know who he is. Same holds true for
+things like Player1, LastHitter, and so on.</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b><span style='font-size:16.0pt'>Links:</span></b></p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><a
+href="https://www.pocketplane.net/tutorials/simscript.html">SimDing0's
+Complete Scripting Guide</a></p>
+
+<p class=MsoNormal style='text-align:justify'><a
+href="https://gibberlings3.github.io/iesdp/appendices/timers.htm">Igi's
+Game Time vs Real Time</a></p>
+
+<p class=MsoNormal style='text-align:justify'><a
+href="https://gibberlings3.github.io/iesdp/">IESDP</a> (Look under Scripting)</p>
+
+</div>
+
+</body>
+
+</html>
