@@ -1,5 +1,5 @@
 [![Release](https://img.shields.io/github/v/release/Spellhold-Studios/AI-Scripting-Tutorial?include_prereleases&color=%2392403a)](https://github.com/Spellhold-Studios/AI-Scripting-Tutorial/releases/latest)
-[![Published](https://img.shields.io/github/release-date/Spellhold-Studios/AI-Scripting-Tutorial?display_date=published_at&label=published&color=%2392403a)](https://github.com/Spellhold-Studios/AI-Scripting-Tutorial/releases/latest)
+[![Published](https://img.shields.io/github/release-date-pre/Spellhold-Studios/AI-Scripting-Tutorial?display_date=published_at&label=published&color=%2392403a)](https://github.com/Spellhold-Studios/AI-Scripting-Tutorial/releases/latest)
 [![Downloads](https://img.shields.io/github/downloads/Spellhold-Studios/AI-Scripting-Tutorial/total?color=%2392403a)](https://github.com/Spellhold-Studios/AI-Scripting-Tutorial/releases)
 [![Platform](https://img.shields.io/badge/platform-Windows%20%a0%20macOS%20%a0%20Linux-%2392403a)](https://github.com/Spellhold-Studios/AI-Scripting-Tutorial/releases)
 [![Games](https://img.shields.io/badge/games-BG2%20%a0%20BGT-%2392403a)](https://github.com/Spellhold-Studios/AI-Scripting-Tutorial/releases)
